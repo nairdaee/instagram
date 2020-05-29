@@ -14,3 +14,21 @@ def home(request):
     users=User.objects.all().exclude(id=request.user.id)
     row = round(len(images)/4)
     return render(request, 'home.html', {"images": images,"profile":profile,"users":users,"comments":comments})
+
+@login_required(login_url='/accounts/login/')
+def upload(request):
+    current_user = request.user
+    current_user_id=request.user.id
+    if request.method == 'POST':
+        form = NewImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = current_user
+            image.userId=current_user_id
+            image.profile=current_user_id
+            image.save()
+        return redirect('home')
+
+    else:
+        form = NewImageForm()
+    return render(request, 'upload.html', {"form": form})
