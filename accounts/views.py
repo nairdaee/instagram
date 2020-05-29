@@ -26,7 +26,7 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next')) #get the value that accompanied the request and redirects to that value
             else:                                #next is the name if the input type btw
-              return redirect("photos:home")
+              return redirect("home")
     else:
 
         form = AuthenticationForm()
@@ -35,4 +35,4 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
        logout(request) #will log current user out,no need to specify
-       return redirect("photos:home") #articles is the app name;list is the url name
+       return redirect("home") #articles is the app name;list is the url name
