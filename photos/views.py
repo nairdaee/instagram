@@ -45,3 +45,36 @@ def myprofile(request):
         raise Http404()
 
     return render(request,"profile.html",{'profile':profile_photos,"pic":profile})
+
+@login_required(login_url="/accounts/login/")
+def edit(request):
+    current_user_id=request.user.id
+    profile=Profile.objects.filter(userId=current_user_id)
+    if len(profile)<1:
+
+        if request.method=='POST':
+            form=EditProfile(request.POST,request.FILES)
+            if form.is_valid():
+                profile=form.save(commit=False)
+                profile.userId=current_user_id
+                profile.save()
+            return redirect("myprofile")
+        else:
+            form=EditProfile()
+            return render(request,"edit.html",{"form":form})
+    else:
+        if request.method=='POST':
+            form=EditProfile(request.POST,request.FILES )
+            if form.is_valid():
+                profile=form.save(commit=False)
+                bio=form.cleaned_data['bio']
+                pic=form.cleaned_data['pic']
+                update=Profile.objects.filter(userId=current_user_id).update(bio=bio,pic=pic)
+                profile.userId=current_user_id
+                profile.save(update)
+            return redirect("profile")
+        else:
+
+            form=EditProfile()
+            return render(request,"edit.html",{"form":form})
+            
