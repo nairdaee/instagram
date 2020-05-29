@@ -1,0 +1,82 @@
+{%block content%}
+<div  class="container ">
+  <br><br><br>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+      <div class="">
+        {%for image in images%}
+        <div class="card">
+          <div class="card-header">
+            <span>{{image.user}}</span>
+          </div>
+          <div class="card-">
+            <div class="">
+              <a href="/image/comment/{{image.id}}">
+              <img class="img-fluid" src="{{image.image.url}}" alt="" width="100%" height="100"></a>
+            </div>
+
+          </div>
+          <div class="card-footer">
+              <div>
+                  <p>{{image.description}}</p>
+                  <form class="form-inline" action="/image/comment/{{image.id}}/" method="post">
+                    {%csrf_token%}
+                    {%bootstrap_form forms%}
+    
+                    <input type="hidden" name="like" value="1">
+                    <button class="btn-danger" type="submit" name="button"><i   class="far  fa-heart"><i> {{image.likes}}</i></i></button>
+                    <button class="btn-elegant"><a href="/image/comment/{{image.id}}"><i class="far fa-comment"></i></a></button>
+                    
+                  </form>
+              </div>
+            <div>
+              <i>{{image.post_date}} </i>
+            </div>
+            <form class="form-group" action="/image/comment/{{image.id}}/" name='{{image.id}}' method="post">
+              {%csrf_token%}
+              {%bootstrap_form form%}
+              <input type="hidden" name="id" value="{{ image.id }}">
+              <div>
+                <button id='post' class="btn btn-elegant"  type="submit" name="button">Post</button>
+              </div>
+    
+            </form>
+          </div>
+        </div>
+        <br><br>
+        {%endfor%}
+
+      </div>
+
+
+
+    </div>
+    <div class="col-md-4 ">
+      <div class="contain">
+      <a class="goUser" href="{%url 'myprofile'%}">
+        {%for img in profile%}
+        <img height="35px" src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle" alt="avatar">
+        {%endfor%}
+        {{user}}</a>
+
+      <div>
+          <h1>Comments</h1>
+          {%if comments%}
+          {%for all in comments%}
+          <span id="span"><strong>{{all.user}}...</strong></span><span class="font"> {{all.comment}}  </span><br><br>
+          {%endfor%}
+          {%endif%}
+            <br>
+      </div>
+    </div>
+
+
+    </div>
+
+  </div>
+  <br><br><br>
+
+
+</div>
+{%endblock%}

@@ -10,4 +10,6 @@ urlpatterns=[
     url(r'^upload$', views.upload, name='upload'),
     url(r'^myprofile$',views.myprofile,name='myprofile'),
     url(r'myprofile/edit$',views.edit,name='edit'),
+    url(r"^search/",views.search,name="search"),
+
 ]

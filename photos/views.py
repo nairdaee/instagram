@@ -77,4 +77,49 @@ def edit(request):
 
             form=EditProfile()
             return render(request,"edit.html",{"form":form})
-            
+
+
+@login_required(login_url="/accounts/login/")
+def comments(request,image_id):
+    try:
+        image=Image.objects.filter(id=image_id).all()
+        comment=Comments.objects.filter(images=image_id).all()
+    except Exception as e:
+        raise  Http404()
+
+    imag=Image.objects.filter(id=image_id).all()
+    count=0
+    for i in imag:
+        count+=i.likes
+
+    if request.method=='POST':
+        form=Likes(request.POST)
+        k=request.POST.get("like","")
+        if k:
+            if form.is_valid:
+                likes=form.save(commit=False)
+                current_user=request.user
+                postid=image_id
+                if not PhotoLikes.objects.filter(liker=current_user, postid=postid).exists():
+                    Image.objects.filter(id=postid).update(likes=F('likes')+1)
+                    like = PhotoLikes(postid=postid, liker=current_user)
+                    like.save()
+                else:
+                    Image.objects.filter(id=postid).update(likes=F('likes')-1)
+                    PhotoLikes.objects.filter(postid=postid, liker=current_user).delete()
+                return redirect('comment',image_id)
+    else:
+        forms=Likes()
+    if request.method=='POST':
+        current_user=request.user
+        i=request.POST.get("id","")
+        form=CommentForm(request.POST)
+        if form.is_valid:
+            comments=form.save(commit=False)
+            comments.user=current_user
+            comments.images=i
+            comments.save()
+            return redirect('comment',image_id)
+    else:
+        form=CommentForm()
+    return render(request,"comment.html",{"images":image,'form':form,"comments":comment,"count":count,"forms":forms})
