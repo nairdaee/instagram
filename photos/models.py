@@ -53,3 +53,13 @@ class Comments(models.Model):
     
     def save_comments(self):
         self.save()
+
+class Followers(models.Model):
+    user = models.CharField(max_length=20, default="")
+    follower = models.CharField(max_length=20, default="")
+
+    def __str__(self):
+        return self.follower
+    
+    def save_followers(self):
+        self.save()
