@@ -32,3 +32,16 @@ def upload(request):
     else:
         form = NewImageForm()
     return render(request, 'upload.html', {"form": form})
+
+@login_required(login_url="/accounts/login/")
+def myprofile(request):
+    try:
+        current_user=request.user.id
+        profile_photos=Image.objects.filter(userId=current_user)
+        profile_image=Profile.objects.filter(userId=current_user).all()
+        profile=profile_image.reverse()[0:1]
+
+    except Exception as e:
+        raise Http404()
+
+    return render(request,"profile.html",{'profile':profile_photos,"pic":profile})
