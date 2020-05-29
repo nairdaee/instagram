@@ -7,4 +7,5 @@ app_name = 'photos'
 
 urlpatterns=[
     url('^$', views.home, name = 'home'),
+    url(r'^upload$', views.upload, name='upload'),
 ]
