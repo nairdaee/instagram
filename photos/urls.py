@@ -7,3 +7,4 @@ app_name = 'photos'
 
 urlpatterns=[
     url('^$', views.home, name = 'home'),
+]

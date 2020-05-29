@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from photos import views as photo_views #differentiates the two
+from photos import views #differentiates the two
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/',include('accounts.urls')),
-    url(r'^photos/',include('photos.urls')),
     url(r'^$',include('photos.urls')),
 ]
