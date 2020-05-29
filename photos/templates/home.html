@@ -1,0 +1,49 @@
+{% block content %}
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+       {% for image in images %}
+        <div class="card">
+            <div class="card-header">
+              <span>{{image.user}}</span>
+            </div>
+            <div class="card-">
+              <div class="">
+                <a href="/image/comment/{{image.id}}">
+                <img class="img-fluid" src="{{image.image.url}}" alt="" width="300px" height="350px"></a>
+              </div>
+
+            </div>
+            <div class="card-footer">
+                <div>
+                  <p>{{image.description}}</p>
+                    <i class="far fa-heart"></i>
+                    <a href="/image/comment/{{image.id}}"><i class="far fa-comment">Like and Comment</i></a>
+                </div>
+              <div>
+                <i>{{image.likes}} likes</i>
+              </div>
+              <div>
+                <i>{{image.post_date}} </i>
+                </div>
+            </div>
+
+
+
+          </div>
+          <br><br>
+        {% endfor %}
+    </div>
+    <div class="col-md-4">
+         <h1>Explore</h1>
+         {%for all in users%}
+         <img class="rounded-circle" height="30px" width="auto" src="https://cdn.pixabay.com/photo/2016/08/09/17/52/instagram-1581266_960_720.jpg" alt="">
+         <span>{{all.username}}  </span> <a href="/profile/user/{{all.id}}">View</a><br><br>
+         {%endfor%}
+    </div>
+    
+  </div>
+</div>
+{% endblock %}

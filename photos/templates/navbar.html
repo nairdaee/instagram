@@ -1,0 +1,16 @@
+<nav>
+    <ul>
+      {%if user.is_authenticated %}    <!--Interchanges login/log out buttons depending on user's state-->
+        <li>
+            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">                          
+                {% csrf_token %}
+                <button type="submit" class="signup">Logout</button>
+            </form>
+        </li>
+        <li><a href="{% url 'photos:create' %} " class="highlight">Post photo</a></li>
+        {% else %}
+          <li><a href="{%url 'accounts:login' %}" class="signup">Login</a></li>
+          <li><a href="{%url 'accounts:signup' %}" class="signup">Signup</a></li>
+        {% endif %}
+    </ul>
+</nav>
