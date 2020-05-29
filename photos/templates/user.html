@@ -1,0 +1,91 @@
+{%block content%}
+<header>
+
+		<div class="container">
+	
+			<div class="profile">
+	
+				<div class="profile-image">
+						{%for i in pic%}
+						<img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile">
+            {%endfor%}
+	
+					
+	
+				</div>
+	
+				<div class="profile-user-settings">
+            {%for user in users%}
+            <h1 class="profile-user-name">{{user.username}}</h1>
+            <form id="follow" class="form-group" action="/profile/user/{{user.id}}/" method="post">
+              {%csrf_token%}
+              {%bootstrap_form form%}
+              <input type="hidden" name="current" value="{{user.id}}">
+              <button type="submit" class="btn profile-edit-btn">{{following}}</button><span id="close"></span>
+
+            </form>
+            {%endfor%}
+					
+	
+	
+        </div>
+        
+        <div class="profile-stats">
+
+            <ul>
+              <li><span class="profile-stat-count">{{posts}}</span> posts</li>
+              <li><span class="profile-stat-count">{{all}}</span> followers</li>
+            </ul>
+    
+          </div>
+				
+	
+				<div class="profile-bio">
+            {%for i in pic%}
+            <p><span class="profile-real-name"></span> {{i.bio}}</p>
+            {%endfor%}
+	
+				</div>
+
+			</div>
+			<!-- End of profile section -->
+	
+		</div>
+		<!-- End of container -->
+	
+  </header>
+  
+  <main>
+	
+      <div class="container">
+    
+        <div class="gallery">
+            {%if profile%}
+            {%for photo in profile%}
+          <div class="gallery-item" tabindex="0">
+    
+            <img src="{{photo.image.url}}" class="gallery-image" alt="">
+    
+            <div class="gallery-item-info">
+    
+              <ul>
+                <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i>{{photo.likes}}</li>
+                <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i></li>
+              </ul>
+    
+            </div>
+    
+          </div>
+          {% endfor %}
+          {%else%}
+        <div class="alert">
+          <p class="animated fadeIn alert alert-info">No photos yet <br>
+        </p>
+
+        </div>
+        {%endif%}
+        </div>
+      </div>
+    
+    </main>
+{%endblock%}
