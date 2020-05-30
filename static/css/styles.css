@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(204, 200, 200);
+}
 a.newphoto{
     border: 1px solid black;
     padding: 10px;
@@ -43,3 +46,46 @@ body::-webkit-scrollbar {
     width:10%;
     height:10%;
 }
+/*Sign up, sign in styling */
+
+
+.site-form {
+    border-radius: 30px;
+    background-color: #7da2a9;
+    margin-top: 60px;
+    border-top: 5px dashed black;
+    border-bottom: 5px dashed black;
+    padding: 20px;
+}
+
+.site-form input, .site-form textarea{
+    display: block;
+    margin: 20px 0 0px 0;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.site-form input[type="submit"]{
+    background: black;
+    border: 0;
+    color: #7da2a9;
+    font-size: 20px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.errorlist li{
+    padding: 10px;
+    list-style-type: none;
+    border: 1px solid #FF5722;
+    border-radius: 40px;
+    margin: 10px;
+    margin-right:50%;
+    color: #FF5722
+}
+
+.errorlist{
+    padding: 0;
+}
+
+/* Posts styling */

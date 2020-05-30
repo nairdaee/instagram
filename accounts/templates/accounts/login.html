@@ -1,5 +1,9 @@
+{% extends 'base.html' %}
+
 {% block content%}
-<h1>Log in</h1>
+<br>
+<br>
+<h1 style="text-align: center;">Log in</h1>
 
 <form class="site-form" action="{% url 'accounts:login' %}" method="post">
     {% csrf_token %}
@@ -8,6 +12,6 @@
     <input type="hidden"name="next" value="{{request.GET.next}}"> <!--output this hidden input-->
     {% endif %}
 <input type="submit" value="Login"><!--so that now when we make this post request,it will be accompanied by the value we got above-->
-
+<p>Dont have an account yet?</p>
 </form>
 {% endblock%}
