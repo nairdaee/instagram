@@ -1,0 +1,45 @@
+a.newphoto{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 4px;
+    color: black;
+}
+
+a.highlight{
+    float:right;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 4px;
+    color: black;
+}
+
+.signup{
+    border-radius: 4px;
+    color: black;
+    background-color: #7da2a9;
+    padding:10px;
+    border: 1px solid #7da2a9
+}
+.signup1{
+    color:black;
+    background-color: #7da2a9;
+    border:none;
+}
+/* SCROLL BAR STYLING*/
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color:none ;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #7da2a9;
+    border-radius: 30px;
+  }
+.searchbutton{
+    float:right;
+}
+
+.logos{
+    float:left;
+    width:10%;
+    height:10%;
+}

@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Image, Profile, Comments, Followers, PhotoLikes
 from .forms import NewImageForm, EditProfile,UpdateProfile,CommentForm,Likes,FollowForm
 
-@login_required(login_url='/accounts/login/')
+
 def home(request):
     current_user=request.user.id
     images = Image.all_images()
@@ -74,7 +74,7 @@ def edit(request):
                 update=Profile.objects.filter(userId=current_user_id).update(bio=bio,pic=pic)
                 profile.userId=current_user_id
                 profile.save(update)
-            return redirect("profile")
+            return redirect("myprofile")
         else:
 
             form=EditProfile()
