@@ -13,15 +13,14 @@
             <div class="card-">
               <div class="">
                 <a href="/image/comment/{{image.id}}">
-                <img class="img-fluid" src="{{image.image.url}}" alt="" width="300px" height="350px"></a>
+                <img class="img-fluid" src="{{image.image.url}}" alt="" style="max-width: 100%;"></a>
               </div>
 
             </div>
             <div class="card-footer">
                 <div>
                   <p>{{image.description}}</p>
-                    <i class="far fa-heart"></i>
-                    <a href="/image/comment/{{image.id}}"><i class="far fa-comment">Like and Comment</i></a>
+                    <a href="/image/comment/{{image.id}}"><i class="far fa-heart" style="color: black;width:40px;height:40px;"></i><i class="fa fa-comment" aria-hidden="true" style="color: black;width:30px;height:40px;"></i></a>
                 </div>
               <div>
                 <i>{{image.likes}} likes</i>

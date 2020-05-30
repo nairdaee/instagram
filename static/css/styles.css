@@ -89,3 +89,7 @@ body::-webkit-scrollbar {
 }
 
 /* Posts styling */
+
+.card{
+    background-color: #7da2a9;
+}
