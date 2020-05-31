@@ -18,8 +18,8 @@
 						{%for i in pic%}
 						<img  style="border:4px solid #7da2a9;width:10%;height: 10%;border-radius:60px;" class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile">
 						<div class="profile-bio" style="float:right;">
-					
-							<p><span class="profile-real-name">{{user}}</span> {{i.bio}}</p>
+							<h3>Bio</h3>
+							<p> ->   {{i.bio}}</p>
 			
 						</div>		
 	
@@ -31,7 +31,7 @@
 	
 					<h1 class="profile-user-name">{{user}}</h1>
 	
-					<a href="{%url 'edit'%}"><button style="background-color:#7da2a9"class="btn profile-edit-btn">Edit Profile</button></a>
+					<a href="{%url 'edit'%}"><button style="color:black;background-color:#7da2a9"class="btn profile-edit-btn">Edit Profile</button></a>
 	
 				</div>
 				{%endfor%}
