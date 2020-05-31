@@ -6,16 +6,17 @@
 		<div class="container">
 	
 			<div class="profile">
-	
-				<div class="profile-image">
 						{%for i in pic%}
-						<img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile">
+						<img style="border:4px solid #7da2a9;width:10%;height: 10%;border-radius:60px;"src="{{i.pic.url}}" alt="profile">
             {%endfor%}
-	
-					
-	
-				</div>
-	
+            <div class="profile-bio" style="float:right;">
+              <h1>Bio</h1>
+                {%for i in pic%}
+                <p><span class="profile-real-name"></span> {{i.bio}}</p>
+                {%endfor%}
+      
+            </div>
+        
 				<div class="profile-user-settings">
             {%for user in users%}
             <h1 class="profile-user-name">{{user.username}}</h1>
@@ -23,7 +24,7 @@
               {%csrf_token%}
               {%bootstrap_form form%}
               <input type="hidden" name="current" value="{{user.id}}">
-              <button type="submit" class="btn profile-edit-btn">{{following}}</button><span id="close"></span>
+              <button style="background-color:#7da2a9 ;" type="submit" class="btn profile-edit-btn">{{following}}</button><span id="close"></span>
 
             </form>
             {%endfor%}
@@ -33,22 +34,12 @@
         </div>
         
         <div class="profile-stats">
-
-            <ul>
-              <li><span class="profile-stat-count">{{posts}}</span> posts</li>
-              <li><span class="profile-stat-count">{{all}}</span> followers</li>
-            </ul>
-    
+              <span class="profile-stat-count">{{posts}}</span><br>posts<br><hr>
+              <span class="profile-stat-count">{{all}}</span><br> followers<hr>
+                
           </div>
+		
 				
-	
-				<div class="profile-bio">
-            {%for i in pic%}
-            <p><span class="profile-real-name"></span> {{i.bio}}</p>
-            {%endfor%}
-	
-				</div>
-
 			</div>
 			<!-- End of profile section -->
 	
@@ -60,21 +51,18 @@
   <main>
 	
       <div class="container">
-    
-        <div class="gallery">
+        <h3 style="text-align: center;">Posts</h3>
+        <br>
+        <div class="photos">
             {%if profile%}
             {%for photo in profile%}
-          <div class="gallery-item" tabindex="0">
+          <div class="photo21" tabindex="0">
     
-            <img src="{{photo.image.url}}" class="gallery-image" alt="">
+            <img style="width:100%;height:100%;"  src="{{photo.image.url}}" class="gallery-image" alt="">
     
-            <div class="gallery-item-info">
-    
-              <ul>
-                <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i>{{photo.likes}}</li>
-                <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i></li>
-              </ul>
-    
+            <div class="likes">
+              <br>
+              <span class="view"><i style="width:20px;height:20px" class="fas fa-heart" aria-hidden="true"></i>{{photo.likes}}</span>
             </div>
     
           </div>
@@ -87,6 +75,9 @@
         </div>
         {%endif%}
         </div>
+        <br>
+        <br>
+        <br>
       </div>
     
     </main>

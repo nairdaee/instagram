@@ -173,5 +173,5 @@ def search(request):
         return render(request,'search.html',{"message":message,"images":images})
 
     else:
-        message="anything...make sure you have entered a valid user"
+        message="anything...make sure you have entered a valid username"
         return render(request,'search.html',{"message":message})

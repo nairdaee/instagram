@@ -195,9 +195,23 @@ body::-webkit-scrollbar {
 
 .photo{
     background-color: #7da2a9;
-    padding: 10px;
+    border-top: 2px dashed black;
+    padding:10px;
+    border-right: 2px dashed black;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.photo21{
+    background-color: #7da2a9;
     border-top: 2px dashed black;
     border-right: 2px dashed black;
     position: relative;
     padding-bottom: 40px;
+}
+/* User profile styling */
+
+.profile-bio{
+    padding-top:60px;
+    padding-right: 60px;
 }

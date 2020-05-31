@@ -7,7 +7,7 @@
     {% if images %}
       <h2 class="result-message">Found {{images|length }} image(s) related to {{message}}</h2>
     {% else %}
-      <h2 class="result-message"> Found no images related to {{message}}</h2>
+      <h3 class="result-message"> Found no images related to {{message}}</h3>
     {% endif %}
     <hr>
     <br>
@@ -15,7 +15,7 @@
       {% for image in images%}
        <div class= "photo">
          <h2 class="head">{{image.user}}</h2>
-         <a href="/image/comment/{{image.id}}"><img style="width:60%;height:50%;" src="{{image.image.url}}"></a>
+         <a href="/image/comment/{{image.id}}"><img style="width:60%;height:50%;margin-left:10%" src="{{image.image.url}}"></a>
          <hr>
          <p class="bodies">{{image.likes}} likes</p>
          <p class= "others">Posted on {{image.post_date}}</p>

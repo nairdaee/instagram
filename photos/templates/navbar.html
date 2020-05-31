@@ -26,17 +26,18 @@
         </div>
       <ul class="navbar-nav ml-auto nav-flex-icons">
         <li class="nav-item">
-          <a href="https://www.google.com/maps" class="nav-link waves-effect waves-light">
+          <a href="https://www.google.com/maps" title="View location"class="nav-link waves-effect waves-light">
               <i class="far fa-compass"></i>
           </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link waves-effect waves-light">
-              <i class="far fa-heart"></i>
+          <a href="{% url 'home' %}" title="Back home" class="nav-link waves-effect waves-light">
+            <i class="fa fa-home" aria-hidden="true"></i>
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          <a class="nav-link dropdown-toggle" title="User options" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <i class="far fa-user"></i>
           </a>
