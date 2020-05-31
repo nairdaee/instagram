@@ -3,8 +3,7 @@
 <br><br><br>
 <div class="container">
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-7">
+    <div class="col-sm-6 offset-sm-6 two">
        {% for image in images %}
         <div class="card">
             <div class="card-header">
@@ -14,19 +13,21 @@
               <div class="">
                 <a href="/image/comment/{{image.id}}">
                 <img class="img-fluid" src="{{image.image.url}}" alt="" style="max-width: 100%;"></a>
+                <br>
+                <br>
+                <a href="/image/comment/{{image.id}}"><i class="far fa-heart" style="padding-left:10px;color: black;width:40px;height:40px;"></i><i class="fa fa-comment" aria-hidden="true" style="color: black;width:30px;height:40px;"></i><i class="fa fa-share" style="color: black;width:30px;height:40px;"aria-hidden="true"></i></a>
+                <div style="float:right;padding-right:15px;">
+                  <i>{{image.likes}} likes</i>
+                </div>
               </div>
-
             </div>
             <div class="card-footer">
                 <div>
-                  <p>{{image.description}}</p>
-                    <a href="/image/comment/{{image.id}}"><i class="far fa-heart" style="color: black;width:40px;height:40px;"></i><i class="fa fa-comment" aria-hidden="true" style="color: black;width:30px;height:40px;"></i></a>
+                  <p><strong>{{image.user}}</strong> {{image.description}}</p>
+                    
                 </div>
               <div>
-                <i>{{image.likes}} likes</i>
-              </div>
-              <div>
-                <i>{{image.post_date}} </i>
+                <i style="float:right;">{{image.post_date}} </i>
                 </div>
             </div>
 
@@ -36,12 +37,16 @@
           <br><br>
         {% endfor %}
     </div>
-    <div class="col-md-4">
-         <h1>Explore</h1>
+    <div class="col-sm-6 col-2 fixed-top one" style="border-radius: 36px;margin-top:20%;background-color: none;border:none;">
+      <div class="card">
+        <br>
+         <h3 style="text-align: center;">Suggestions for you</h3>
+         <br>
          {%for all in users%}
-         <img class="rounded-circle" height="30px" width="auto" src="https://cdn.pixabay.com/photo/2016/08/09/17/52/instagram-1581266_960_720.jpg" alt="">
-         <span>{{all.username}}  </span> <a href="/profile/user/{{all.id}}">View</a><br><br>
+         <span style="margin-left:10%;margin-right:10%;border-radius:34px;padding:9px;background-color:black;color:white;">{{all.username}}  <a style="color: #7da2a9;float:right;" href="/profile/user/{{all.id}}"><strong>View profile</strong></a></span>
+         <hr>
          {%endfor%}
+         </div>
     </div>
     
   </div>

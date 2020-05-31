@@ -1,48 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-
-  <div class="row heading">
+  <br>
+  <br>
+  <div class="result">
     {% if images %}
-      <h2>Found {{images|length }} image(s) of searched term {{message}}</h2>
+      <h2 class="result-message">Found {{images|length }} image(s) related to {{message}}</h2>
     {% else %}
-      <h2> Found image(s) of searched term {{message}}</h2>
+      <h2 class="result-message"> Found no images related to {{message}}</h2>
     {% endif %}
-    <div class="col-md-7">
-            {% for image in images %}
-             <div class="card">
-                 <div class="card-header">
-                  <img height="35px" src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle" alt="avatar">
-                   <span>{{image.user}}</span>
-                 </div>
-                 <div class="card-">
-                   <div class="">
-                     <a href="/image/comment/{{image.id}}">
-                     <img class="img-fluid" src="{{image.image.url}}" alt=""></a>
-                   </div>
-     
-                 </div>
-                 <div class="card-footer">
-                     <div>
-                         <i class="far fa-heart"></i>
-                         <a href="/image/comment/{{image.id}}"><i class="far fa-comment"></i></a>
-                         <i class="fas fa-share-alt-square"></i>
-                     </div>
-                   <div>
-                     <i>{{image.likes}} likes</i>
-                   </div>
-                   <div>
-                     <i>{{image.post_date}} </i>
-                     </div>
-                 </div>
-     
-     
-     
-               </div>
-               <br><br>
-             {% endfor %}
-         </div>
+    <hr>
+    <br>
+    <div class="photos">
+      {% for image in images%}
+       <div class= "photo">
+         <h2 class="head">{{image.user}}</h2>
+         <a href="/image/comment/{{image.id}}"><img style="width:60%;height:50%;" src="{{image.image.url}}"></a>
+         <hr>
+         <p class="bodies">{{image.likes}} likes</p>
+         <p class= "others">Posted on {{image.post_date}}</p>
+         <a class="view" href='/image/comment/{{image.id}}'>Details</a>
+         <a href="{% url 'home' %}" class="view2"><span class='owner'> Back</span></a>
+       </div>
+      {% endfor %}
+    </div>
+    <br>
+    <br>
+    <br>
   </div>
-
 </div>
+
 {% endblock %}
+
+<!--alternative-->
+

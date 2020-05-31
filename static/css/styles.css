@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(204, 200, 200);
+    background-color: rgb(204,200,200);
 }
 a.newphoto{
     border: 1px solid black;
@@ -42,6 +42,8 @@ body::-webkit-scrollbar {
 }
 
 .logos{
+    background-color: black;
+    border-radius: 10px;
     float:left;
     width:10%;
     height:10%;
@@ -92,4 +94,110 @@ body::-webkit-scrollbar {
 
 .card{
     background-color: #7da2a9;
+}
+
+/* Search results styling */
+
+.result-message{
+    background-color: black;
+    color:#7da2a9;
+    border:none;
+    border-radius:35px;
+    padding:10px;
+
+}
+
+.photo-detail .photo{
+    padding: 0;
+}
+
+.photo-detail  .photo img{
+    max-width: 100%;
+}
+
+.photo-detail  .photo h2{
+    text-align: center;
+    margin: 20px auto;
+    font-size: 2em
+}
+
+.photo-detail .photo p{
+    text-align: center;
+}
+
+.photo-detail  .photo p{
+    margin: 10px 20px
+}
+
+.head{
+    font-family: 'Crimson Text', serif;
+}
+.owner{
+    font-family: 'Chelsea Market', cursive;
+}
+.bodies{
+    font-family: 'Handlee', cursive;
+}
+.others{
+    font-family: 'Orbitron', sans-serif;
+}
+.others1{
+    color: #00dba0;
+    font-family: 'Baloo 2', cursive;
+}
+
+.view1{
+    padding: 5px;
+    position: absolute;
+    background-color:  #00dba0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    color: #0f121f;
+}
+.view2{
+    padding: 5px;
+    position: absolute;
+    border-top:2px solid black;
+    border-left:2px solid black;
+    background-color: none;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    color: #0f121f;
+}
+
+.view{
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    color: black;
+    animation-name: seepic;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes seepic {
+    0%   {color: black;}
+    25%  {color: #7da2a9;}
+    50%  {color: black; }
+    75%  {color: #7da2a9;}
+    100% {color: black;}
+}
+  
+.photos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
+
+.photo{
+    background-color: #7da2a9;
+    padding: 10px;
+    border-top: 2px dashed black;
+    border-right: 2px dashed black;
+    position: relative;
+    padding-bottom: 40px;
 }

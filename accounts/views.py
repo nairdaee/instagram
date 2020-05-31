@@ -10,7 +10,7 @@ def signup_view(request):
             user = form.save() #saving user
             login(request, user) 
             
-            return redirect("photos:home")
+            return redirect("home")
     else:
 
         form = UserCreationForm()

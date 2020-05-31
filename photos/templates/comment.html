@@ -5,8 +5,7 @@
 <div  class="container ">
   <br><br><br>
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-7">
+    <div class="col-sm-6 offset-sm-6 two">
       <div class="">
         {%for image in images%}
         <div class="card">
@@ -28,8 +27,8 @@
                     {%bootstrap_form forms%}
     
                     <input type="hidden" name="like" value="1">
-                    <button class="btn-danger" type="submit" name="button"><i   class="far  fa-heart"><i> {{image.likes}}</i></i></button>
-                    <button class="btn-elegant"><a href="/image/comment/{{image.id}}"><i class="far fa-comment"></i></a></button>
+                    <button style= "background:none;border:none;" type="submit" name="button"><i   class="far  fa-heart" style="color: black;width:30px;height:30px;"><i> {{image.likes}}</i></i></button>
+                    <button style= "background:none;border:none;"  ><a href="/image/comment/{{image.id}}"><i class="far fa-comment" style="color: black;width:30px;height:30px;"></i></a></button>
                     
                   </form>
               </div>
@@ -45,6 +44,7 @@
               </div>
     
             </form>
+            <a href="{% url 'home' %}" style="float:right;" class="btn btn-elegant" >Back</a>
           </div>
         </div>
         <br><br>
@@ -55,19 +55,12 @@
 
 
     </div>
-    <div class="col-md-4 ">
-      <div class="contain">
-      <a class="goUser" href="{%url 'myprofile'%}">
-        {%for img in profile%}
-        <img height="35px" src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle" alt="avatar">
-        {%endfor%}
-        {{user}}</a>
-
+    <div class="col-sm-6 col-2 fixed-top one " style="border-radius: 36px;margin-top:20%;background-color: gray;border:3px dashed black;">
       <div>
-          <h1>Comments</h1>
+          <p style="text-align: center;">All comments</p>
           {%if comments%}
           {%for all in comments%}
-          <span id="span"><strong>{{all.user}}...</strong></span><span class="font"> {{all.comment}}  </span><br><br>
+          <span id="span"><strong>{{all.user}}  </strong></span><span class="font"> {{all.comment}}  </span><br><br>
           {%endfor%}
           {%endif%}
             <br>

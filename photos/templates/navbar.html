@@ -18,7 +18,7 @@
       <div class="col-md-4">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form  action="{%url 'search'%}" role="search" class="form-inline  my-2 my-lg-0">
-              <input id="searchUp" class="form-control mr-sm-2" name="user" type="search" placeholder="Search" aria-label="Search">
+              <input id="searchUp" class="form-control mr-sm-2" name="user" type="search" placeholder="Search for user" aria-label="Search">
             </form>
     
           </div>
@@ -54,7 +54,8 @@
                   <a href="{%url 'accounts:signup' %}" >Signup</a>
                   <br>
                 {% endif %}
-            <a href="{%url 'myprofile'%}">My Profile</a>
+                <hr>
+            <a href="{%url 'myprofile'%}"><strong>My profile</strong></a>
             </div>
           </div>
         </li>
