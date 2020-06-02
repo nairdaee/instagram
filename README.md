@@ -20,12 +20,12 @@ ___
 
 A user is able to:
 
-> Sign in to the application to start using.
-> Upload pictures to the application.
-> See their profile with all their pictures.
-> Follow other users and see their pictures on their timeline.
-> Like a picture and leave a comment on it.
-> Search for other users.
+* Sign in to the application to start using.
+* Upload pictures to the application.
+* See their profile with all their pictures.
+* Follow other users and see their pictures on their timeline.
+* Like a picture and leave a comment on it.
+* Search for other users.
 
 ### Application setup
 
@@ -80,7 +80,7 @@ A user is able to:
 
 ### Live site
 
-> 
+> https://nairdaee.herokuapp.com/
 
 ---
 
