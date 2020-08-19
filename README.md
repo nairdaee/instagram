@@ -76,7 +76,7 @@ A user is able to:
 
 ### Known bugs
 
-~~Implementing the F object used for resolving references to existing query objects~~
+F strings implementation which is only available on python3.6+
 
 ### Live site
 
